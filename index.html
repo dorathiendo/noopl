@@ -316,12 +316,14 @@
 
     wavesurfer.on('finish', function () {
         toggleButton();
+        wavesurfer.stop();
     });
 
     const option1 = $('.radio')[0].getAttribute('name');
     switchAudioFiles(option1);
 
     function switchAudioFiles(name) {
+        wavesurfer.stop();
         wavesurfer.load(`https://cdn.shopify.com/s/files/1/0503/8961/4743/t/16/assets/${name}.mp3`);
     }
 
@@ -333,7 +335,6 @@
     function playAudio() {
         toggleButton();
         if (!wavesurfer.isPlaying()) {
-            wavesurfer.play();
             wavesurfer.play();
         } else {
             wavesurfer.pause();
